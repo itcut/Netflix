@@ -1,2 +1,2 @@
-# Clash-Rules
+# Netflix-Rules for Clash
 
