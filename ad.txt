@@ -1,0 +1,10 @@
+payload:
+  - '+.ulogs.umengcloud.com'
+  - '+.ad.cyapi.cn'
+  - '+.adx.sogaha.cn'
+  - '+.qzs.gdtimg.com'
+  - '+.xlog.jd.com'
+  - '+.dsp-x.jd.com'
+  - '+.janapi.jd.com'
+  - '+.open.e.kuaishou.com'
+  - '+.adukwai.com'
