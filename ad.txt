@@ -8,3 +8,7 @@ payload:
   - '+.janapi.jd.com'
   - '+.open.e.kuaishou.com'
   - '+.adukwai.com'
+  - '+.adstrategy.biz.weibo.com'
+  - '+.ad.weibo.com'
+  - '+.bootpreload.uve.weibo.com'
+  - '+.adimg.uve.weibo.com'
