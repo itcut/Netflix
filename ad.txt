@@ -12,3 +12,4 @@ payload:
   - '+.ad.weibo.com'
   - '+.bootpreload.uve.weibo.com'
   - '+.adimg.uve.weibo.com'
+  - '+.oth.eve.mdt.qq.com'
