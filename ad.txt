@@ -13,3 +13,7 @@ payload:
   - '+.bootpreload.uve.weibo.com'
   - '+.adimg.uve.weibo.com'
   - '+.oth.eve.mdt.qq.com'
+  - '+.trace.qq.com'
+  - '+.e.qq.com'
+  - '+.aegis.qq.com'
+  - '+.analytics.map.qq.com'
