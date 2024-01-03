@@ -17,3 +17,5 @@ payload:
   - '+.e.qq.com'
   - '+.aegis.qq.com'
   - '+.analytics.map.qq.com'
+  - '+.otheve.play.aiseet.atianqi.com'
+  - '+.othstr.play.aiseet.atianqi.com'
