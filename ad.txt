@@ -19,3 +19,6 @@ payload:
   - '+.analytics.map.qq.com'
   - '+.otheve.play.aiseet.atianqi.com'
   - '+.othstr.play.aiseet.atianqi.com'
+  - '+.adimg.uve.weibo.com'
+  - '+.kadmimage.biz.weibo.com'
+  - '+.sdkmonitor.biz.weibo.com'
