@@ -21,3 +21,4 @@ payload:
   - '+.adimg.uve.weibo.com'
   - '+.kadmimage.biz.weibo.com'
   - '+.sdkmonitor.biz.weibo.com'
+  - '+.optimus-ads-ykx.amap.com'
