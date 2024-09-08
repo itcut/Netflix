@@ -22,3 +22,4 @@ payload:
   - '+.kadmimage.biz.weibo.com'
   - '+.sdkmonitor.biz.weibo.com'
   - '+.optimus-ads-ykx.amap.com'
+  - '+.fastdfs-download.pagoda.com.cn'
