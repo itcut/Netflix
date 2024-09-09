@@ -23,4 +23,4 @@ payload:
   - '+.sdkmonitor.biz.weibo.com'
   - '+.optimus-ads-ykx.amap.com'
   - '+.fastdfs-download.pagoda.com.cn'
-  - '+.dsapp.tencent-prod.pagoda.com.cn'
+  - '+.sensorsdata.pagoda.com.cn'
