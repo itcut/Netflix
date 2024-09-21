@@ -26,3 +26,4 @@ payload:
   - '+.fastdfs-download.pagoda.com.cn'
   - '+.sensorsdata.pagoda.com.cn'
   - '+.sns-paopao.iqiyi.com'
+  - '+.acc.qq.com'
