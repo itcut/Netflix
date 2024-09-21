@@ -27,3 +27,4 @@ payload:
   - '+.sensorsdata.pagoda.com.cn'
   - '+.sns-paopao.iqiyi.com'
   - '+.acc.qq.com'
+  - '+.ilianyue.com'
