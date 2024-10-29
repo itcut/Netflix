@@ -29,3 +29,4 @@ payload:
   - '+.acc.qq.com'
   - '+.ilianyue.com'
   - '+.laiyagushi.com'
+  - '+.optimus-ads.amap.com'
