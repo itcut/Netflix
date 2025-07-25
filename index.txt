@@ -2,46 +2,58 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>工具集 | Tool Center</title>
+  <title>工具集</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fluent UI Web Components -->
+  <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+
   <style>
     body {
       margin: 0;
       font-family: "Segoe UI", sans-serif;
       display: flex;
       height: 100vh;
+      background-color: #f5f7fa;
     }
+
     nav {
-      width: 200px;
-      background: #f0f0f0;
-      border-right: 1px solid #ccc;
+      width: 220px;
+      background: #ffffff;
+      border-right: 1px solid #e0e0e0;
       padding: 20px;
       box-sizing: border-box;
     }
+
     nav h2 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       margin-top: 0;
+      color: #444;
     }
+
     nav ul {
       list-style: none;
       padding: 0;
     }
+
     nav li {
       margin: 10px 0;
     }
+
     nav a {
+      color: #0078d4;
       text-decoration: none;
-      color: #007BFF;
+      font-weight: 500;
       cursor: pointer;
     }
+
     nav a.active {
-      font-weight: bold;
-      color: #0056b3;
+      color: #005a9e;
+      font-weight: 600;
     }
 
     main {
       flex: 1;
-      padding: 20px;
+      padding: 30px;
       overflow-y: auto;
     }
 
@@ -53,93 +65,75 @@
       display: block;
     }
 
-    textarea {
-      width: 100%;
-      height: 120px;
-      padding: 10px;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-
-    button {
-      margin: 10px 0;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0056b3;
-    }
-
-    .result {
-      white-space: pre-wrap;
-      background: #f8f8f8;
-      padding: 10px;
-      border: 1px solid #ccc;
-      min-height: 80px;
+    fluent-text-area, fluent-button {
       margin-top: 10px;
+      width: 100%;
+    }
+
+    .result-box {
+      background: #f3f3f3;
+      border: 1px solid #d0d0d0;
+      padding: 10px;
+      margin-top: 10px;
+      min-height: 80px;
+      white-space: pre-wrap;
+      font-family: Consolas, monospace;
     }
   </style>
 </head>
 <body>
 
+  <!-- 工具导航 -->
   <nav>
     <h2>工具列表</h2>
     <ul>
       <li><a class="tool-link active" data-tool="text-formatter">文本格式化</a></li>
-      <!-- 未来工具可以添加到此 -->
       <li><a class="tool-link" data-tool="json-formatter">JSON 格式化</a></li>
     </ul>
   </nav>
 
+  <!-- 主区域 -->
   <main>
-    <!-- 工具 1：文本格式化 -->
+    <!-- 文本格式化工具 -->
     <section id="text-formatter" class="tool-section active">
       <h1>文本格式化工具</h1>
-      <label for="inputText">输入文本（英文逗号分隔）:</label>
-      <textarea id="inputText" placeholder="例如：apple,banana,grape"></textarea>
-      <button onclick="formatText()">格式化</button>
-      <div class="result" id="outputText">处理后的文本将在此显示</div>
+      <label for="inputText">输入文本（英文逗号分隔）：</label>
+      <fluent-text-area id="inputText" placeholder="例如：apple,banana,grape"></fluent-text-area>
+      <fluent-button appearance="accent" onclick="formatText()">格式化</fluent-button>
+      <div class="result-box" id="outputText">处理后的文本将在此显示</div>
     </section>
 
-    <!-- 工具 2：JSON 格式化（预留） -->
+    <!-- JSON 格式化工具 -->
     <section id="json-formatter" class="tool-section">
       <h1>JSON 格式化工具</h1>
-      <textarea id="jsonInput" placeholder='请输入 JSON，例如 {"name":"张三"}'></textarea>
-      <button onclick="formatJSON()">格式化</button>
-      <div class="result" id="jsonOutput"></div>
+      <fluent-text-area id="jsonInput" placeholder='请输入 JSON，例如 {"name":"张三"}'></fluent-text-area>
+      <fluent-button appearance="accent" onclick="formatJSON()">格式化</fluent-button>
+      <div class="result-box" id="jsonOutput">格式化结果将在此显示</div>
     </section>
   </main>
 
+  <!-- 功能 JS -->
   <script>
-    // 工具切换逻辑
+    // 工具切换
     document.querySelectorAll('.tool-link').forEach(link => {
       link.addEventListener('click', () => {
-        // 清除激活状态
         document.querySelectorAll('.tool-link').forEach(l => l.classList.remove('active'));
         document.querySelectorAll('.tool-section').forEach(s => s.classList.remove('active'));
 
-        // 激活选中工具
         link.classList.add('active');
         document.getElementById(link.dataset.tool).classList.add('active');
       });
     });
 
-    // 文本格式化函数
+    // 文本格式化（去除非逗号后的换行，再添加逗号换行）
     function formatText() {
       const input = document.getElementById("inputText").value;
-      const cleaned = input.replace(/[^\n],?\n+/g, match => match.replace(/\n+/g, ''));  
-
+      const cleaned = input.replace(/([^,])\n+/g, '$1'); // 去除非逗号后的换行
       const formatted = cleaned.split(",").join(",\n").trim();
       document.getElementById("outputText").textContent = formatted;
     }
 
-    // JSON 格式化函数（预留）
+    // JSON 格式化
     function formatJSON() {
       const input = document.getElementById("jsonInput").value;
       try {
