@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>工具集</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Fluent UI Web Components -->
-  <script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+  <!-- 本地托管 Fluent UI -->
+  <script type="module" src="./fluentui/web-components.min.js"></script>
 
   <style>
     body {
@@ -78,6 +78,24 @@
       min-height: 80px;
       white-space: pre-wrap;
       font-family: Consolas, monospace;
+      position: relative;
+    }
+
+    .copy-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 10px;
+      font-size: 0.85rem;
+      background-color: #0078d4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background-color: #005a9e;
     }
   </style>
 </head>
@@ -100,7 +118,11 @@
       <label for="inputText">输入文本（英文逗号分隔）：</label>
       <fluent-text-area id="inputText" placeholder="例如：apple,banana,grape"></fluent-text-area>
       <fluent-button appearance="accent" onclick="formatText()">格式化</fluent-button>
-      <div class="result-box" id="outputText">处理后的文本将在此显示</div>
+
+      <div class="result-box" id="outputText">
+        <button class="copy-button" onclick="copyFormattedText()">复制</button>
+        处理后的文本将在此显示
+      </div>
     </section>
 
     <!-- JSON 格式化工具 -->
@@ -112,14 +134,12 @@
     </section>
   </main>
 
-  <!-- 功能 JS -->
   <script>
     // 工具切换
     document.querySelectorAll('.tool-link').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelectorAll('.tool-link').forEach(l => l.classList.remove('active'));
         document.querySelectorAll('.tool-section').forEach(s => s.classList.remove('active'));
-
         link.classList.add('active');
         document.getElementById(link.dataset.tool).classList.add('active');
       });
@@ -128,9 +148,19 @@
     // 文本格式化（去除非逗号后的换行，再添加逗号换行）
     function formatText() {
       const input = document.getElementById("inputText").value;
-      const cleaned = input.replace(/([^,])\n+/g, '$1'); // 去除非逗号后的换行
+      const cleaned = input.replace(/([^,])\n+/g, '$1');
       const formatted = cleaned.split(",").join(",\n").trim();
-      document.getElementById("outputText").textContent = formatted;
+      document.getElementById("outputText").childNodes[1].textContent = formatted || "（无内容）";
+    }
+
+    // 复制格式化文本
+    function copyFormattedText() {
+      const text = document.getElementById("outputText").childNodes[1].textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("已复制到剪贴板！");
+      }).catch(err => {
+        alert("复制失败：" + err);
+      });
     }
 
     // JSON 格式化
