@@ -133,7 +133,9 @@
     // 文本格式化函数
     function formatText() {
       const input = document.getElementById("inputText").value;
-      const formatted = input.split(",").join(",\n").trim();
+      const cleaned = input.replace(/[^\n],?\n+/g, match => match.replace(/\n+/g, ''));  
+
+      const formatted = cleaned.split(",").join(",\n").trim();
       document.getElementById("outputText").textContent = formatted;
     }
 
