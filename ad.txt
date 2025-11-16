@@ -30,3 +30,5 @@ payload:
   - '+.ilianyue.com'
   - '+.laiyagushi.com'
   - '+.optimus-ads.amap.com'
+  - '+.doh.pub'
+  - '+.dns.alidns.com'
