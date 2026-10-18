@@ -25,3 +25,32 @@ payload:
   - '+.nflxvideo.net'
   - '+.openai.com'
   - '+.oaistatic.com'
+  # 核心域名
+  - '+.anthropic.com'
+  - '+.claude.ai'
+  - '+.claude.com'
+  - '+.clau.de'
+  - '+.claudemcpclient.com'
+  - '+.claudemcpcontent.com'
+  - '+.claudeusercontent.com'
+
+  # CDN 和静态资源
+  - 'servd-anthropic-website.b-cdn.net'
+  - 'anthropic.com.cdn.cloudflare.net'
+
+  # 认证 / 内容
+  - 'anthropic.auth0.com'
+  - 'anthropic-com.ghost.io'
+
+  # 监控和遥测
+  - '+.sentry.io'
+  - '+.statsigapi.net'
+  - 'browser-intake-us5-datadoghq.com'
+
+  # Intercom 客服系统
+  - '+.intercom.io'
+  - '+.intercomcdn.com'
+
+  # Fathom 隐私统计分析
+  - 'cdn.usefathom.com'
+
